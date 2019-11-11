@@ -1,0 +1,17 @@
+@import 'ember-paper';
+
+
+md-toolbar.md-default-theme.page-main-toolbar {
+  background-color: color('blue', '700');
+  color: $dark-contrast-color;
+  position:fixed;
+  width:100%;
+  max-width:1240;
+  left:0px;
+  top:0px;
+
+  md-icon, .md-button md-icon {
+    color: $dark-contrast-color;
+    margin-top: -2px;
+  }
+}

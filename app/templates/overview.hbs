@@ -1,0 +1,133 @@
+<div class="layout-padding layout-md-column">
+  <div class="layout-column" style="max-width:840px;">
+    {{#paper-content class="layout-padding"}}
+      <h2>The Source</h2>
+    {{/paper-content}}
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      <img src="assets/images/github.jpg" alt="BRfix" style="max-width:120px;">
+      <span class="flex-5"></span>
+      {{#title.text as |text|}}
+        {{#text.headline}}Neighbor Demo{{/text.headline}}
+        {{#text.subhead}}Hosted on Github{{/text.subhead}}
+        <p>
+          <a href="https://github.com/maiclein/neighbordemo" alt="Neighbor Demo">
+            Neighbor Demo Source Code
+          </a>
+        </p>
+      {{/title.text}}
+    {{/card.title}}
+    {{#card.content}}
+      <p>
+        Written entirely in JavaScript, using the <a href="https://emberjs.com">EmberJS Framework</a>.
+      </p>
+      <p>
+        <h3>Notable Files</h3>
+      </p>
+      <table cellspacing="10">
+      <tbody>
+        <tr>
+          <td><strong>app/templates/demo.hbs</strong></td>
+          <td>The demonstration handlebars template</td>
+        </tr>
+        <tr>
+          <td><strong>app/controllers/demo.js</strong></td>
+          <td>The logic for how the demo is controlled</td>
+        </tr>
+        <tr>
+          <td><strong>app/helpers/member-number.js</strong></td>
+          <td>A helper to lay out the numbering</td>
+        </tr>
+        <tr>
+          <td><strong>app/helpers/neighbor-or-not.js</strong></td>
+          <td>A helper to identify loners vs neighbors</td>
+        </tr>
+      </tbody>
+    </table>
+    {{/card.content}}
+  {{/paper-card}}  
+
+  {{#paper-content class="layout-padding"}}
+    <h2>Some Approaches</h2>
+  {{/paper-content}}
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      <img src="assets/images/dr-l.png" alt="BRfix" style="max-width:120px;">
+      <span class="flex-5"></span>
+      {{#title.text as |text|}}
+        {{#text.headline}}"B, R, fix Indexing"{{/text.headline}}
+        {{#text.subhead}}Demonstrated Method{{/text.subhead}}
+      {{/title.text}}
+    {{/card.title}}
+    {{#card.content}}
+      <p>
+        Data examined from top, left to bottom, right.  Targets a value of 1.
+      </p>
+      <p>
+          When a target is found, it examines the bottom and right blocks, and indexes found targets.  Case exists where two neighbors meet during examination and requires reconciliation.
+      </p>
+    {{/card.content}}
+  {{/paper-card}}
+
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      <img src="assets/images/pouring.png" alt="BRfix" style="max-width:120px;">
+      <span class="flex-5"></span>
+      {{#title.text as |text|}}
+        {{#text.headline}}"Pouring the Index"{{/text.headline}}
+        {{#text.subhead}}Additional Method{{/text.subhead}}
+      {{/title.text}}
+    {{/card.title}}
+    {{#card.content}}
+      <p>
+        Data examined from top, left to bottom, right.  Targets a value of 1.
+      </p>
+      <p>
+          When a target is found, recursively checks and then indexes every found neighbor (top, bottom, left, right) target, for each new target found, until it exhausts any new targets.
+      </p>
+    {{/card.content}}
+  {{/paper-card}}
+  
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      <img src="assets/images/matrix-folding.jpg" alt="BRfix" style="max-width:120px;">
+      <span class="flex-5"></span>
+      {{#title.text as |text|}}
+        {{#text.headline}}"Matrix Folding"{{/text.headline}}
+        {{#text.subhead}}Topographical Depth{{/text.subhead}}
+        <p>
+          <h5> n @(i, j) * (n @(i, j) + n @(i+1, j) + n @(i-1, j) + n @(i, j+1) + n @(i, j-1) )</h5>
+        </p>
+      {{/title.text}}
+    {{/card.title}}
+    {{#card.content}}
+      <p>
+        Rows and and columns are added adjacently by folding the matrix and then multiplied by their original value.  Then data examined from top, left to bottom, right.  Targets a value of >=2.
+      </p>
+      <p>
+        Gives topographical information that may be used for other purporses, or in optimizing identification of unique neighborhoods.
+      </p>
+    {{/card.content}}
+  {{/paper-card}}
+  
+  {{#paper-content class="layout-padding"}}
+    <h2>Discussion</h2>
+  {{/paper-content}}
+  <h3>Challenge Parallels / Commonalities</h3>
+
+  <h3>Additional Ways to Solve</h3>
+
+  <h3>Architectural Considerations</h3>
+
+  <h3>Solution Selection v Implementation Selection</h3>
+
+  <h3>More Discussion!</h3>
+
+  {{#paper-content class="layout-padding"}}
+    <h1>Thank you for spending time with the demo!</h1>
+  {{/paper-content}}
+</div>
+  
+{{outlet}}
+</div>
+

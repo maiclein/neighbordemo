@@ -1,0 +1,91 @@
+
+<div class="layout-padding layout-row">
+  <div class="layout-column">
+    {{#paper-button}}
+      <h2>
+      {{#file-upload 
+        name="newShapeData"
+        accept="text/*"
+        multiple=false
+        onfileadd=(action "uploadFile") as |queue|
+      }}
+      <a class="button">
+        - Upload file -
+      </a>
+      {{/file-upload}}
+      </h2>
+    {{/paper-button}}
+    
+    {{paper-divider}}
+    <p>
+      {{neighborCount}} neighbors
+    </p>
+    <p>
+      {{rows}} rows
+    </p>
+    <p>
+      {{cols}} columns
+    </p>
+    {{paper-divider}}
+    
+    {{#paper-button onClick=(action "restorDefault")}}
+      <h3>Solve Default</h3>
+    {{/paper-button}}
+    {{#paper-button onClick=(action "genRandom" "10")}}
+      <h3>Random 10 x 10</h3>
+    {{/paper-button}}
+    {{#paper-button onClick=(action "genRandom" "25")}}
+      <h3>Random 25 x 25</h3>
+    {{/paper-button}}
+    {{#paper-button onClick=(action "genRandom" "100")}}
+      <h3>Random 100 x 100</h3>
+    {{/paper-button}}
+  </div>
+
+  {{#unless showError}}
+    <div class="layout-column">
+      <h2>{{fileName}}</h2>
+      {{#each shapeData as |sd rowindex|}}
+         <div class="layout-row">
+          {{#each sd as |tile colindex|}}
+            {{#if tile}}
+              {{#if (neighbor-or-not knownKneighbors rowindex colindex)}}
+                <div class="layout-padding" style="width:25px;background:black;border:1px solid black;">
+                  <font color="lightGrey">
+                    {{member-number knownKneighbors rowindex colindex}}
+                  </font>                  
+                </div>
+              {{else}}
+                <div class="layout-padding" style="width:25px;background:grey;border:1px solid black;">
+                  &nbsp;
+                </div>
+              {{/if}}
+            {{else}}
+              <div class="layout-padding" style="width:25px;background:Snow;border:1px solid black;">
+                &nbsp;
+              </div>
+            {{/if}}
+          {{/each}}
+        <div class="layout-padding"> 
+          {{rowindex}}
+        </div>
+      </div> 
+      {{/each}}
+
+    </div>
+  {{else}}
+    <div class="layout-column flex-xs flex-gt-xs-50">
+      {{#paper-card as |card|}}
+        {{#card.title as |title|}}
+          {{paper-icon "error" size=48}}
+          {{#title.text as |text|}}
+            {{#text.headline}}An error processing uploaded file!{{/text.headline}}
+            {{#text.subhead}}Please ensure the file format is correct.{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        <img src="/assets/images/file-format.png" border="1" alt="neighbor">
+      {{/paper-card}}
+    </div>
+  {{/unless}}
+</div>
+{{!-- {{outlet}} --}}

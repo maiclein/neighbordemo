@@ -1,0 +1,38 @@
+
+{{#paper-toolbar class="md-whiteframe-1dp page-main-toolbar" as |toolbar|}}
+   {{#toolbar.tools}}
+     <h2>Demo and Writing</h2>
+     <span class="flex-10"></span>
+     {{#link-to "application"}}
+			{{#paper-button}}
+			  <font color="white">demo rules</font>
+			{{/paper-button}}
+		{{/link-to}}
+		{{#link-to "overview"}}
+			{{#paper-button}}
+			  <font color="white">overview</font>
+			{{/paper-button}}
+		{{/link-to}}
+		{{#link-to "demo"}}
+			{{#paper-button}}
+			  <font color="white">start demo </font>
+			{{/paper-button}}
+		{{/link-to}}
+		{{#link-to "writing"}}
+			{{#paper-button}}
+			  <font color="white">writing</font>
+			{{/paper-button}}
+		{{/link-to}}
+		{{#link-to "diagrams"}}
+			{{#paper-button}}
+			  <font color="white">diagrams</font>
+			{{/paper-button}}
+		{{/link-to}}
+		<span class="flex"></span>
+   {{/toolbar.tools}}
+ {{/paper-toolbar}}
+
+<div class="layout-padding" style="padding-top:40px;max-width:1240;">
+	{{outlet}}
+</div>
+

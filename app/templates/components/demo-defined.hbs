@@ -1,0 +1,49 @@
+
+<h2>Shape Counting - Rules</h2>
+{{#paper-content class="md-whiteframe-z1"}}
+  <div class="layout-padding layout-column">
+    <p>
+      Using the language of your choice, you must write a program which can count the number of connected “shapes” in a two-dimensional grid of black and white pixels. A “shape” means a region of black pixels which are connected through the “north”, “south”, “east” and “west” directions – diagonal connections don’t matter. For example, the grid below contains five different shapes:
+    </p>
+    <div class="layout-padding layout-row" >
+      <div>
+        <img src="assets/images/shape-example.png" alt="Example Image" style="width:100%">
+      </div>
+      <div class="layout-column">
+        <p>
+          1. The wiggle in the “north west” or “upper left”.
+        </p>
+        <p>
+          2. The 3 by 3 square just below it.
+        </p>
+        <p>
+          3. The 2 by 2 square below and to the right (this is only diagonally adjacent to shape 2, so they are not connected).
+        </p>
+        <p>
+          4. The 2 by 2 square in the north east (this is the same configuration of black pixels as shape 3, but we count it as its own shape).
+        </p>
+        <p>
+          5. The “backwards E” shape in the bottom right.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      You can assume the input grid will come in as a list of lists of 0 or 1 values, like:
+    </p>
+    <pre>
+      [ [1, 1, 1],
+        [0, 1, 0],
+        [0, 1, 0] ]
+    </pre>
+    <p>
+      representing a T pattern of black pixels in a 3 by 3 grid. (And for that input, your program should return 1, since there is just the one shape in the grid.) But if you would prefer a different input format, you can go ahead and assume that instead; this exercise is mostly about the logic for counting. Similarly, do not worry about checking the input for errors.
+    </p>
+    <p>
+      At the end of the challenge, you should be prepared to explain how your solution works, and convince your interviewer that it always gives the right answer. (Or, if you know that there are some inputs where it doesn’t work, what those cases are and why the solution gives a wrong answer.) We may also talk about things which made this challenge easy or hard, whether there are viable different approaches, and your thoughts about the problem in general.
+    </p>
+  </div>
+{{/paper-content}}
+
+
+{{yield}}

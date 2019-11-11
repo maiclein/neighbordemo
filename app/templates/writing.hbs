@@ -1,0 +1,128 @@
+<div class="layout-padding" style="width:840px;">
+  {{#paper-content class="layout-padding"}}
+    <h1>Better Privacy in Public Libraries</h1>
+    <h2>An Architectural Approach</h2>
+    <h4>By maiclein</h4>
+  {{/paper-content}}
+  {{!-- {{#paper-content class="md-whiteframe-z1"}} --}}
+  <div class="layout-padding" style="width:840px;">
+    <p>
+      The ability to access free information has become a core ideal of what it means to be an American citizen.  And the public library system in the United States is a wonderful, physical, manifestation of American ideals and desire for equality.  The mission of public libraries, occupies a unique area of cultural issues, technology, and law.  Public Libraries have helped to define fair use rights for copyright law, been politically pressured to ban books or filter content, and sometimes are the target of governmental agencies requesting patron reading habits.
+    </p>
+    <p>
+      Some Public Libraries have began set up Tor exit nodes to further the mission of protecting intellectual freedom, privacy, and unfettered access to information.  In the same way that Tor is an architectural solution to more anonymous use of the internet, architectural solutions exist that provide more anonymous access to physical media in libraries.  Architected solutions that focus on privacy protection and security are very difficult to penetrate, but what would the goals of such a solution be?
+    </p>
+    {{#paper-content class="layout-padding"}}
+      <h3>Goals</h3>
+    {{/paper-content}}
+    <p>
+      Lets pick some goals that increase the chance of adoption.  Trying to not change process too much, but also improving architectural privacy.
+    </p>
+    <div class="layout-padding">      
+        1. Solution will track and make available for search media in stock, equal to or better than today’s systems.<br><br>
+        2. Solution will allow check-in and check-out of media in largely the same way as today.<br><br>
+        3. Solution will be unable, or very difficult, to report on the reading habits of an individual patron<br><br>
+        4. Solution will maintain late fees and unreturned media fees from an overall revenue perspective.<br><br>
+    </div>
+    {{#paper-content class="layout-padding"}}
+    <h3>Architectural Considerations</h3>
+    {{/paper-content}}
+    <p>In order to increase privacy internally, we think of the points of attack that would be used to get a list of patron's checked out media.  Lets identify some use cases that we would protect against from an architectural standpoint.  Then the resulting features are ones that we cannot have in the architecture.
+      <div class="layout-padding">
+        <p>
+          <li>
+            <strong>
+              A legally enforceable subpeona is presented compelling production of patron media usage.
+            </strong>
+          </li>
+          <div class="layout-padding">
+            The architecture must be unable to comply with, and not have any obtainable reference linking a patron to their history of media use.
+          </div>
+        </p>
+        <p>
+          <li>
+            <strong>
+              A target of an investigation is known to have been at a public library within a time period. A legally enforceable subpeona is presented compelling production of media transactions during that time period. 
+            </strong>
+          </li>
+          <div class="layout-padding">
+            The architecture must not have the ability to align a time period with a list of media transactions (checked out or returned) definitively.
+          </div>
+        </p>
+        <p>
+          <li>
+            <strong>
+              A target of an investigation is known to have been charged fees by the public library within a time period. A legally enforceable subpeona is presented compelling production of media for those transactions during that time period. 
+            </strong>
+          </li>
+          <div class="layout-padding">
+            The ability to determine patron media usage through examination of late fees, charges, or notifications.
+          </div>
+        </p>
+        <p>
+          <li>
+            <strong>
+              The systems and networks are / can / will be subject to potentially heavy surveillance.
+            </strong>
+          </li>
+          <div class="layout-padding">
+            An assumption that the network itself is safe from a privacy perspective (e.g. everything being watched)
+          </div>
+        </p>
+    </div>
+    </p>
+    {{#paper-content class="layout-padding"}}
+      <h3>Some Requirements</h3>
+    {{/paper-content}}
+    <p>
+      To address some of those items that we cannot allow in the architecture, will require us to make some new processes, and data handling rules.  This approach to creating an architecture that addresses our goals requires some specific elements:
+
+      <div class="layout-padding">
+        <li>
+          Creation of “Value Categories” for replacement value of media properties.  These are weighted groups of media of similar value that are all assigned a similar replacement value.  For example, books / dvds / etc costing from $10 - $15 all have a Value Category associated with a replacement value of $13.50.  Similarly, late fees can be assessed.
+        </li>
+        <li>
+          Process to attach a modifiable tag (RFID or other) and assign it a UUID.  Associate that UUID with the Value Category for the media.
+        </li>
+        <li>
+          Architecturally grouping and time shifting of data storage events
+        </li>
+        <li>
+          A PGP based interface for patron media tracking
+        </li>
+      </div>
+    </p>
+  </div>
+
+  {{!-- {{/paper-content}} --}}
+  <div class="layout-padding">
+    {{#paper-content class="layout-padding"}}
+      <h3>Fun Architectural Diagram</h3>
+    {{/paper-content}}
+    <p>
+      Taking a stab at an architecture that could actually support this set of use cases, at an interesting intersection of society, and a cross section of my own interests, was a great time.  I'm sure it's less than perfect, and would love to discuss how much privacy this actually provides.  There are several tuning points and interesting cases and attacks.  Become the "nefarious hacker" and launch an attack on this public library media tracking system!
+    </p>
+    <p>
+      <img src="assets/images/ala-arch.jpg" alt="ala" style="width:90%">
+    </p>
+  </div>
+
+{{#paper-content class="layout-padding"}}
+  <h3>References</h3>
+{{/paper-content}}
+<p>
+  <a href="https://www.ibtimes.co.uk/tor-project-use-us-public-libraries-boost-network-speed-1513325" target="_">  Tor Project in Public Libraries
+  </a>
+</p>
+
+<p>
+  <a href="http://www.ala.org/advocacy/privacy/lawenforcement/guidelines" target="_">
+    American Libarry Association: Law Enforcement Guidelines
+  </a>
+</p>
+{{#paper-content class="layout-padding"}}
+  <h1>Thank you for reading!</h1>
+{{/paper-content}}
+</div>
+
+{{outlet}}
